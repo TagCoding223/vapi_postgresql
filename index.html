@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vapi - A News API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Spicy+Rice&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Potta+One&family=Spicy+Rice&display=swap');
+    </style>
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        @media only screen and (max-width:782px) {
+            .code-con-pr {
+                padding: 0.5rem !important;
+                margin: 0.5rem !important;
+            }
+
+            .code-con-sub-code {
+                padding-right: 1.5rem !important;
+                padding-left: 0.5rem !important;
+                margin-left: 0.5rem !important;
+                margin-right: 2rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav bar -->
+    <ul class="nav justify-content-center bg-dark py-4">
+        <li class="nav-item">
+            <a class="nav-link active fs-3" aria-current="page" href="#"
+                style="letter-spacing: 4px;font-family: 'Spicy Rice', serif;font-weight: 400;font-style: normal;color:whitesmoke;">Vapi</a>
+        </li>
+    </ul>
+
+    <!-- Thumnar -->
+    <div id="carouselExampleCaptions" class="carousel">
+        <div class="carousel-inner">
+            <!-- <img src="./arnold.jpg" class="d-block w-100" alt="..." height="480px" style="opacity: 1"> -->
+            <img src="/arnold.jpg" class="d-block w-100" alt="..." height="480px" style="opacity: 1">
+            <div class="carousel-caption d-none d-md-block" style="bottom: 8.25rem;">
+                <h5 class="fs-4 py-3" style="letter-spacing: 4px;font-family: 'Spicy Rice', serif;font-weight: 400;">
+                    Vapi - A News API</h5>
+                <p class="py-2 fs-3"
+                    style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Vapi provide
+                    get , post , put and delete methods <br> That can be easy to use ,
+                    work fast on your project with Javascript.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service -->
+    <div class="container">
+        <h3 class="px-2 mx-4 pt-4 mt-4"><span class="badge text-bg-secondary"><i class="fa fa-gear"></i></span> Services
+        </h3>
+        <p class="px-4 mx-4 fs-3"
+            style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">The <em><b>Vapi News
+                    API</b></em> provides a simple , free <em><b>REST API</b></em> for developers to retrieve the news
+            in a familiar JSON format </p>
+        <div class="container mx-4 px-4 fs-4">
+            <ul style="list-style: none;">
+                <li><span><i class="fa fa-check-circle"></i></span> No account is required</li>
+                <li><span><i class="fa fa-check-circle"></i></span> This api servies is absolutely free</li>
+                <li><span><i class="fa fa-check-circle"></i></span> Retrieve news headlines with different links</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Methods -->
+    <div class="container my-4 mb-2 pb-2">
+        <h3 class="px-2 mx-4 pt-4 mt-4"><span class="badge text-bg-secondary"><i class="fa fa-flag"></i></span> Methods
+        </h3>
+        <p class="px-4 mx-4 fs-3"
+            style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Retrieve the news as
+            valid JSON:</p>
+
+        <!-- endpoints -->
+        <div class="accordion mx-4 px-4" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <p class="fs-4 mb-0" style="letter-spacing: 2px;font-weight: bold;">GET</p>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p class="fs-5">Retrieve all available records using <strong class="bg-info px-1">/news</strong>
+                            endpoint with CORS Headers.</p>
+                        <div class="code-con-pr container text-bg-dark p-4 m-4 w-auto rounded">
+                            <div class="container mb-4 border-bottom pb-2">
+                                <div class="row">
+                                    <div class="col align-self-start">
+                                        <p class="fs-3 mb-0">Example</p>
+                                    </div>
+                                    <div class="col align-self-center">
+
+                                    </div>
+                                    <div class="col align-self-end">
+                                        <button class="btn btn-primary me-md-2" type="button" style="float: right;"
+                                            onclick="copyClip(0)"><i class="fa fa-clone"></i>
+                                            Copy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-con-sub-code container mx-4 px-4">
+                                <strong>
+                                    <!-- http://localhost:3000/news nodejs server offline -->
+                                    <pre class="copied">let p = fetch("https://vapi-uxd9.onrender.com/news")
+p.then((response) => {
+    console.log("response : ", response);
+    console.log("response.status : ", response.status);
+    console.log("response.ok : ", response.ok);
+    console.log("response.header : ", response.header);
+    return response.json()
+}).then((value) => {
+    console.log(value);
+}).catch((err) => {
+    console.log(err);
+})</pre>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <p class="fs-4 mb-0" style="letter-spacing: 2px;font-weight: bold;">GET:id</p>
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p class="fs-5">Retrieve record of given id using <strong
+                                class="bg-info px-1">/news/:id</strong>
+                            endpoint with CORS Headers.</p>
+                        <div class="code-con-pr container text-bg-dark p-4 m-4 w-auto rounded">
+                            <div class="container mb-4 border-bottom pb-2">
+                                <div class="row">
+                                    <div class="col align-self-start">
+                                        <p class="fs-3 mb-0">Example</p>
+                                    </div>
+                                    <div class="col align-self-center">
+
+                                    </div>
+                                    <div class="col align-self-end">
+                                        <button class="btn btn-primary me-md-2" type="button" style="float: right;"
+                                            onclick="copyClip(1)"><i class="fa fa-clone"></i>
+                                            Copy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-con-sub-code container mx-4 px-4">
+                                <strong>
+                                    <pre class="copied">let p = fetch("https://vapi-uxd9.onrender.com/news/31")
+p.then((response) => {
+    console.log("response : ", response);
+    console.log("response.status : ", response.status);
+    console.log("response.ok : ", response.ok);
+    console.log("response.header : ", response.header);
+    return response.json()
+}).then((value) => {
+    console.log(value);
+}).catch((err) => {
+    console.log(err);
+})</pre>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <p class="fs-4 mb-0" style="letter-spacing: 2px;font-weight: bold;">POST</p>
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p class="fs-5">Create a new record using <strong class="bg-info px-1">/news</strong>
+                            endpoint with CORS Headers in <em><b>post method.</b></em></p>
+                        <div class="code-con-pr container text-bg-dark p-4 m-4 w-auto rounded">
+                            <div class="container mb-4 border-bottom pb-2">
+                                <div class="row">
+                                    <div class="col align-self-start">
+                                        <p class="fs-3 mb-0">Example</p>
+                                    </div>
+                                    <div class="col align-self-center">
+
+                                    </div>
+                                    <div class="col align-self-end">
+                                        <button class="btn btn-primary me-md-2" type="button" style="float: right;"
+                                            onclick="copyClip(2)"><i class="fa fa-clone"></i>
+                                            Copy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-con-pr container mx-4 px-4">
+                                <strong>
+                                    <pre class="copied">let p=fetch('https://vapi-uxd9.onrender.com/news',{
+    method:'POST',
+    body:JSON.stringify({
+        title:'hello',
+        news_link:'visg',
+        image_link:'http://unplash.com',
+        news_host:'vpress'
+    }),
+    headers:{
+        'Content-type':'application/json; charset=UTF-8',
+    },
+})
+p.then((response)=>{
+    console.log(response);
+    console.log(response.ok);
+    console.log(response.status);
+    return response.text()
+}).then((value)=>{
+    console.log(value);
+}).catch((err)=>{
+    console.log(err);
+})</pre>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                        <p class="fs-4 mb-0" style="letter-spacing: 2px;font-weight: bold;">PUT</p>
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p class="fs-5">Update a record using <strong class="bg-info px-1">/news</strong>
+                            endpoint with CORS Headers in <em><b>put method.</b></em></p>
+                        <div class="code-con-pr container text-bg-dark p-4 m-4 w-auto rounded">
+                            <div class="container mb-4 border-bottom pb-2">
+                                <div class="row">
+                                    <div class="col align-self-start">
+                                        <p class="fs-3 mb-0">Example</p>
+                                    </div>
+                                    <div class="col align-self-center">
+
+                                    </div>
+                                    <div class="col align-self-end">
+                                        <button class="btn btn-primary me-md-2" type="button" style="float: right;"
+                                            onclick="copyClip(3)"><i class="fa fa-clone"></i>
+                                            Copy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-con-sub-code container mx-4 px-4">
+                                <strong>
+                                    <pre class="copied">let p=fetch('https://vapi-uxd9.onrender.com/news',{
+    method:'PUT',
+    body:JSON.stringify({
+        id:10,
+        title:'new news title',
+        news_link:'https://facebook.com',
+        image_link:'http://unplash.com',
+        news_host:'cdn',
+    }),
+    headers:{
+        'Content-type':'application/json'
+    }
+})
+p.then((response)=>{
+    console.log(`Response : ${response}`);
+    console.log(`Response status : ${response.status}`);
+    console.log(`Response ok : ${response.ok}`);
+    return response.json()
+}).then((value)=>{
+    console.log(value);
+})</pre>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                        <p class="fs-4 mb-0" style="letter-spacing: 2px;font-weight: bold;">DELETE</p>
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p class="fs-5">Delete a record with help of news id using <strong
+                                class="bg-info px-1">/news</strong>
+                            endpoint with CORS Headers in <em><b>delete method.</b></em></p>
+                        <div class="code-con-pr container text-bg-dark p-4 m-4 w-auto rounded">
+                            <div class="container mb-4 border-bottom pb-2">
+                                <div class="row">
+                                    <div class="col align-self-start">
+                                        <p class="fs-3 mb-0">Example</p>
+                                    </div>
+                                    <div class="col align-self-center">
+
+                                    </div>
+                                    <div class="col align-self-end">
+                                        <button class="btn btn-primary me-md-2" type="button" style="float: right;"
+                                            onclick="copyClip(4)"><i class="fa fa-clone"></i>
+                                            Copy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-con-sub-code container mx-4 px-4">
+                                <strong>
+                                    <pre class="copied">let p=fetch('https://vapi-uxd9.onrender.com/news',{
+    method:'DELETE',
+    body:JSON.stringify({
+        id:8
+    }),
+    headers:{
+        'Content-type':'application/json'
+    }
+})
+p.then((response)=>{
+    console.log(`Response : ${response}`);
+    console.log(`Response status : ${response.status}`);
+    console.log(`Response ok : ${response.ok}`);
+    return response.text()
+}).then((value)=>{
+    console.log(value);
+})</pre>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="m-2 p-4"><b>*Note : <em>Put and Delete method not work below news id 6.</em></b></p>
+    </div>
+
+    <!-- Method Response block -->
+    <div class="container px-4 ">
+        <h3 class="px-2 mx-4"><span class="badge text-bg-secondary"><i class="fa fa-flag"></i></span> Methods Response
+        </h3>
+        <table class="m-4 p-4 table table-striped-columns text-center">
+            <thead>
+                <tr>
+                    <th class="text-bg-primary" scope="col">Code</th>
+                    <th class="text-bg-primary" scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>200</td>
+                    <td>Ok</td>
+                </tr>
+                <tr>
+                    <td>400</td>
+                    <td>Bad Request</td>
+                </tr>
+                <tr>
+                    <td>500</td>
+                    <td>Internal Server Error</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container px-4 pb-4">
+        <h3 class="px-2 mx-4"><span class="badge text-bg-secondary"><i class="fa fa-key"></i></span> JSON Keys
+        </h3>
+        <p class="px-4 mx-4 fs-3"
+            style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span><i
+                    class="fa fa-info-circle" style="color: blue;"></i></span> Each article in response will contain the
+            following keys:</p>
+        <table class="m-4 p-4 table table-striped text-center">
+            <thead>
+                <tr>
+                    <th class="text-bg-primary" scope="col">Keys</th>
+                    <th class="text-bg-primary" scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>news_id</b></td>
+                    <td><b>news id</b></td>
+                </tr>
+                <tr>
+                    <td><b>title</b></td>
+                    <td><b>article title</b></td>
+                </tr>
+                <tr>
+                    <td><b>news_link</b></td>
+                    <td><b>article link</b></td>
+                </tr>
+                <tr>
+                    <td><b>img_link</b></td>
+                    <td><b>article image link</b></td>
+                </tr>
+                <tr>
+                    <td><b>news_host</b></td>
+                    <td><b>name of news source</b></td>
+                </tr>
+                <tr>
+                    <td><b>posted_in</b></td>
+                    <td><b>publish date and time</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- footer -->
+    <div class="container-fluid bg-dark text-light w-100">
+        <div class="container text-center pt-4 mt-4">
+            <div class="row">
+                <div class="col">
+                    <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=DmwnWsdDxQCBQWBnhxsDzKScwBMxGcBFwGkjCLsjphqcnJqHpHXqzqRlZsTfNPwWnVHHpCGHvVHb"
+                        class="text-light" style="text-decoration: none;"><span><i
+                                class="fa fa-envelope fs-1"></i></span>
+                        <br>
+                        <span>Gmail</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="https://github.com/TagCoding223" class="text-light" style="text-decoration: none;"><span><i
+                                class="fa fa-github fs-1"></i></span>
+                        <br>
+                        <span>GitHub</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center pt-4 mt-4 border-top fs-5">
+            <div class="row">
+                <div class="col">
+                    <p style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Author :
+                        Vishal Chouhan</p>
+                </div>
+                <div class="col">
+                    <p style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span><i
+                                class="fa fa-copyright"></i></span> 2024 Vapi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="./static/fontawesome/js/all.js"></script>
+    <script>
+        const code_arr = document.getElementsByClassName('copied');
+        copyClip = (index) => {
+            // console.log(code_arr);
+            // console.log(code_arr[index].innerText);
+            navigator.clipboard.writeText(code_arr[index].innerText);
+        }
+    </script>
+</body>
+
+</html>
